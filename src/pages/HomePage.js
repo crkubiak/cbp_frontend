@@ -1,27 +1,19 @@
 import React, { Component } from 'react';
-import ProjectList from '../components/ProjectList/ProjectList.js'
-import CbpAPI from '../api/CbpAPI.js';
+import logo from './static/cbp_logo.jpg'
 
 class HomePage extends Component {
-  state = {
-    projects: []
-  }
-
-  componentDidMount(){
-    CbpAPI.fetchProjects()
-      .then((apiResponseJSON) => {
-        this.setState({
-          projects: apiResponseJSON
-        })
-      }
-    )
-  }
+  
 
   render() {
     return (
       <div>
-        <h1> Home Page </h1>
-        <ProjectList projects={this.state.projects} />
+        <br/>
+        <br/>
+        <img className="logo" src={logo} alt="logo"/>
+        <br/>
+        <br/>
+        <p>Thank you for checking out Castle Blackpaw.  We are an active Trap Neuter Release team that currently operates on the south side of Chicago.  </p>
+        <h1 className="thick"> Est. 2013 </h1>
       </div>
     );
   }

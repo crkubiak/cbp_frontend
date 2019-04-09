@@ -1,12 +1,25 @@
 import React, { Component } from 'react';
-import ProjectList from '../components/ProjectList/ProjectList.js'
 import CbpAPI from '../api/CbpAPI.js';
+import Project from '../components/Project/Project'
 
 class ProjectPage extends Component {
+  state = {
+    project: null
+  }
+
+  componentDidMount() {
+    CbpAPI.fetchProjectByID(this.props.match.params.projectID)
+    .then((apiResponseJSON) => {
+      this.setState ({
+        project: apiResponseJSON
+      })
+    })
+  }
+
   render() {
     return (
       <div>
-        <h1> Project Page </h1>
+        {this.state.project && <Project project={this.state.project} />}
       </div>
     );
   }

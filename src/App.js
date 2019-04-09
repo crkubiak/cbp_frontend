@@ -37,7 +37,7 @@ class App extends Component {
       return(
         <AddProjectPage
           history={props.history}
-          user={this.state.user}
+          // user={this.state.user}
           />
       )
     }
@@ -60,6 +60,7 @@ class App extends Component {
             <Route exact path="/projects/" component={ProjectsPage} />
             <Route exact path="/projects/:projectID" component={ProjectPage} />
             <Route exact path="/add-project" render={renderAddProjectPage} />
+            <Route exact path="/projects/:projectID" component={EditProjectPage} />
             <Route exact path="/login" render={renderLoginPage} />
             <Route exact path="/logout" render={renderLogout} />
           </div>
